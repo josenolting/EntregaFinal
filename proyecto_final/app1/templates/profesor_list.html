@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<h1>Lista de profesores</h1>
+
+    {% for profesor in profesores %}
+        {{profesor.nombre}}
+        {{profesor.apellido}}
+    {% endfor %}
+{% endblock %}

@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
-from .models import Curso
+from .models import Curso, Entregable, Profesor, Estudiante
+
+
 
 #Create your views here
 
@@ -25,3 +27,17 @@ def curso_create(request):
     
     return render(request, "curso_create.html")
 
+def index(request):
+        return render(request, "index.html")
+
+def entregables_list(request):
+     entregables = Entregable.objects.all()
+     return render(request, "entregables_list.html", {"entregables": entregables})
+
+def profesor_list(request):
+     profesores = Profesor.objects.all()
+     return render(request, "profesor_list.html", {"profesores": profesores})
+
+def estudiantes_list(request):
+     estudiantes = Estudiante.objects.all()
+     return render(request, "estudiantes_list.html", {"estudiantes": estudiantes})
